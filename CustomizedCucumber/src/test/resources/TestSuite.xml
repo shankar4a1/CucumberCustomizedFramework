@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" verbose="1">
+
+ <listeners>
+        <listener class-name="com.utils.Listeners.TestListener"/>
+        <listener class-name="com.utils.Listeners.AnnotationTransformer"/>
+    </listeners>
+	<test name="ProdcuctSearch">
+		<classes>
+			<class name="com.test.ProdcuctSearch" />
+		</classes>
+	</test>
+
+	<test name="EggTimer">
+		<classes>
+			<class name="com.test.EggTimerTest" />
+		</classes>
+	</test>
+
+
+</suite>
