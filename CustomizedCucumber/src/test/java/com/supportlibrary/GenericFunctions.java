@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class GenericFunctions {
 	final static Logger logger = Logger.getLogger(GenericFunctions.class);
-	public static WebDriver driver;
+	static WebDriver driver;
 	public boolean isElementPresent(WebElement element){
 		
 		try{

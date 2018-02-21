@@ -16,7 +16,7 @@ public class HooksDefinition {
 
 	//EggTimerPage egggTimerPage;
 	 WebDriver driver ;
-	@Before
+	@Before({"@component"})
     public void beforeScenario(){
         System.out.println("This will run before the Scenario");
 
@@ -27,7 +27,8 @@ public class HooksDefinition {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }	
 	
-	@After
+	@After({"@component"}
+	)
     public void afterScenario(){
         System.out.println("This will run after the Scenario");
         driver.quit();

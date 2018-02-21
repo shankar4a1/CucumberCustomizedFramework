@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 import com.supportlibrary.GenericFunctions;
 
@@ -19,7 +21,7 @@ public class EggTimerPage extends GenericFunctions {
 
 	final static Logger logger = Logger.getLogger(EggTimerPage.class);
 
-	final WebDriver driver;
+	 WebDriver driver;
 
 	@FindBy(how = How.NAME, using = "start_a_timer")
 	private WebElement SearchTextBox;
@@ -41,7 +43,18 @@ public class EggTimerPage extends GenericFunctions {
 	public EggTimerPage(WebDriver driver)
 
 	{
-		this.driver = driver;
+		 this.driver = driver; 
+		 PageFactory.initElements(driver, this);
+	}
+	
+	/**
+	 * 
+	 */
+	public void verifyHomePge() {
+		//isElementPresent(SearchTextBox);
+	}
+	public void click_on_Go() {
+		GoButton.click();
 	}
 
 
@@ -53,7 +66,7 @@ public class EggTimerPage extends GenericFunctions {
 		SearchTextBox.clear();
 		SearchTextBox.sendKeys(text);
 		logger.info("Start a timer with " +text );
-		GoButton.click();
+		
 
 	}
 	public void verifyUrl(String text) {
