@@ -1,0 +1,9 @@
+	public ValidatableResponse serviceGET(String endPoint,
+			Map<String, String> endPointHeader) {
+		setProxySettings(endPoint);
+		ValidatableResponse validatableResponse = given()
+				.relaxedHTTPSValidation().contentType(ContentType.JSON)
+				.headers(endPointHeader).log().all().when().get(endPoint)
+				.then().log().all();
+		return validatableResponse;
+	}
